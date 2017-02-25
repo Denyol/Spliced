@@ -21,16 +21,18 @@ package me.denyol.spliced.block;
 import me.denyol.spliced.Spliced;
 import me.denyol.spliced.common.SplicedGuiHandler;
 import me.denyol.spliced.tileentity.TileEntitySplicer;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -39,7 +41,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -48,15 +49,18 @@ import javax.annotation.Nullable;
 /**
  * Created by Daniel on 18/2/17.
  */
-public class BlockSplicer extends BlockBase
+public class BlockSplicer extends Block
 {
 
 	public static final PropertyDirection PROPERTY_FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyBool PROPERTY_ACTIVE = PropertyBool.create("active");
 
-	public BlockSplicer(SplicedBlocks.ModBlocks block)
+	public BlockSplicer(String registryName, Material material)
 	{
-		super(block);
+		super(material);
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
+		this.setCreativeTab(Spliced.creativeTab);
 
 		this.setDefaultState(this.getDefaultState().withProperty(PROPERTY_FACING, EnumFacing.NORTH).withProperty(PROPERTY_ACTIVE, false));
 	}
@@ -95,14 +99,6 @@ public class BlockSplicer extends BlockBase
 		}
 
 		return this.getDefaultState().withProperty(PROPERTY_FACING, EnumFacing.NORTH).withProperty(PROPERTY_ACTIVE, false);
-	}
-
-	@Override
-	public void registerForInventoryRendering()
-	{
-		Item item = Item.getItemFromBlock(this);
-		if(item != null)
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(this.getRegistryName(), "active=false,facing=north"));
 	}
 
 	@Override
@@ -185,5 +181,10 @@ public class BlockSplicer extends BlockBase
 		}
 
 		super.breakBlock(worldIn, pos, state);
+	}
+
+	public Item createItemBlock()
+	{
+		return new ItemBlock(this).setRegistryName(this.getRegistryName());
 	}
 }

@@ -19,29 +19,49 @@
 package me.denyol.spliced;
 
 import me.denyol.spliced.api.SplicedRef;
-import me.denyol.spliced.block.SplicedBlocks;
+import me.denyol.spliced.block.BlockGreatSapling;
+import me.denyol.spliced.block.BlockSplicer;
 import me.denyol.spliced.common.SplicedGuiHandler;
 import me.denyol.spliced.common.SplicedRecipes;
 import me.denyol.spliced.proxy.ISplicedProxy;
 import me.denyol.spliced.tileentity.SplicedTileEntities;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import org.apache.logging.log4j.Logger;
 
+@Mod.EventBusSubscriber
 @Mod(modid = SplicedRef.MODID, version = Spliced.VERSION, name = Spliced.NAME, acceptedMinecraftVersions = "[1.10.2]")
 public class Spliced
 {
     public static final String NAME = "Spliced";
 	public static final String VERSION = "@VERSION@";
+
+	public static final BlockSplicer splicer = new BlockSplicer("splicer", Material.IRON);
+	public static final BlockGreatSapling greatSapling = new BlockGreatSapling("great_sapling");
+
+	public static CreativeTabs creativeTab = new CreativeTabs(SplicedRef.MODID)
+	{
+		@Override
+		public Item getTabIconItem()
+		{
+			return Item.getItemFromBlock(splicer);
+		}
+	};
 
     @Mod.Instance(SplicedRef.MODID)
     public static Spliced instance;
@@ -51,21 +71,32 @@ public class Spliced
 
 	public static Logger logger;
 
-	public SplicedRef ref;
+	@SubscribeEvent
+	public static void registerBlocks(RegistryEvent.Register<Block> event)
+	{
+		event.getRegistry().register(splicer);
+		//event.getRegistry().register(greatSapling);
+	}
+
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<Item> event)
+	{
+		event.getRegistry().registerAll(
+				splicer.createItemBlock()//,
+				//greatSapling.createItemBlock()
+		);
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
-		ref = new SplicedRef();
-
-		SplicedBlocks.loadBlocks();
 
 		proxy.registerBlockInventoryRender();
 
 		SplicedTileEntities.registerTileEntities();
 
-		ShapedOreRecipe recipe = new ShapedOreRecipe(SplicedBlocks.splicer, " L ", "BSB", "III",
+		ShapedOreRecipe recipe = new ShapedOreRecipe(splicer, " L ", "BSB", "III",
 				'L', new ItemStack(Blocks.STONE_SLAB, 1, 0), 'B', "barsIron", 'S', new ItemStack(Items.DIAMOND_SWORD), 'I', "blockIron");
 		GameRegistry.addRecipe(recipe);
 

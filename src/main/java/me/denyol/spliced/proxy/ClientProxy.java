@@ -18,7 +18,11 @@
 
 package me.denyol.spliced.proxy;
 
-import me.denyol.spliced.block.SplicedBlocks;
+import me.denyol.spliced.Spliced;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 
 /**
  * Created by Daniel on 10/2/17.
@@ -28,6 +32,13 @@ public class ClientProxy implements ISplicedProxy
 	@Override
 	public void registerBlockInventoryRender()
 	{
-		SplicedBlocks.registerItemBlockRendering();
+		registerForInventoryRendering(Spliced.splicer, "active=false,facing=north", 0);
+	}
+
+	public void registerForInventoryRendering(Block block, String variant, int meta)
+	{
+		Item item = Item.getItemFromBlock(block);
+		if(item != null)
+			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(block.getRegistryName(), variant));
 	}
 }

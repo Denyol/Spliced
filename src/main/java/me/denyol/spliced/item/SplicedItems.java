@@ -18,7 +18,7 @@
 
 package me.denyol.spliced.item;
 
-import me.denyol.spliced.api.SplicedRef;
+import me.denyol.spliced.Spliced;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -47,7 +47,7 @@ public class SplicedItems
 		{
 			this.unlocalizedName = unlocalizedName;
 			this.registryName = registryName;
-			this.creativeTab = SplicedRef.creativeTab;
+			this.creativeTab = Spliced.creativeTab;
 		}
 
 		public CreativeTabs getCreativeTab()

@@ -18,8 +18,8 @@
 
 package me.denyol.spliced.integration.jei;
 
+import me.denyol.spliced.Spliced;
 import me.denyol.spliced.api.SplicedRecipeManager;
-import me.denyol.spliced.block.SplicedBlocks;
 import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
@@ -41,6 +41,6 @@ public class JeiPlugin extends BlankModPlugin
 
 		registry.addRecipes(SplicedRecipeManager.getRecipes());
 
-		registry.addRecipeCategoryCraftingItem(new ItemStack(SplicedBlocks.splicer), SplicerRecipeCategory.ID);
+		registry.addRecipeCategoryCraftingItem(new ItemStack(Spliced.splicer), SplicerRecipeCategory.ID);
 	}
 }

@@ -18,8 +18,6 @@
 
 package me.denyol.spliced.api;
 
-import net.minecraft.creativetab.CreativeTabs;
-
 /**
  * Created by Daniel on 14/2/17.
  */
@@ -28,14 +26,5 @@ public final class SplicedRef
 
 	public static final String MODID = "spliced";
 	public static final String API_VERSION = "0.1";
-	public static CreativeTabs creativeTab;
-
-	/*
-	Initialised during preInit
-	 */
-	public SplicedRef()
-	{
-		creativeTab = new SplicedCreativeTab();
-	}
 
 }
