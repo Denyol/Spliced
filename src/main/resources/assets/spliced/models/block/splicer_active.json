@@ -1,0 +1,23 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "front": "spliced:blocks/splicer_active",
+    "bottom": "spliced:blocks/splicer_bottom",
+    "side": "spliced:blocks/splicer_sides"
+  },
+  "elements": [
+    {
+      "name": "Cube",
+      "from": [ 0.0, 0.0, 0.0 ],
+      "to": [ 16.0, 14.0, 16.0 ],
+      "faces": {
+        "north": { "texture": "#front", "uv": [ 0.0, 2.0, 16.0, 16.0 ] },
+        "east": { "texture": "#side", "uv": [ 0.0, 2.0, 16.0, 16.0 ] },
+        "south": { "texture": "#side", "uv": [ 0.0, 2.0, 16.0, 16.0 ] },
+        "west": { "texture": "#side", "uv": [ 0.0, 2.0, 16.0, 16.0 ] },
+        "up": { "texture": "#bottom", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+        "down": { "texture": "#bottom", "uv": [ 0.0, 0.0, 16.0, 16.0 ] }
+      }
+    }
+  ]
+}

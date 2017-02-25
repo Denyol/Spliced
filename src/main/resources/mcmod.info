@@ -1,0 +1,8 @@
+[{
+  "modid": "spliced",
+  "name": "Spliced",
+  "description": "Slicing and splicing to your heart's content, maybe you might get lucky.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["Denyol"]
+}]

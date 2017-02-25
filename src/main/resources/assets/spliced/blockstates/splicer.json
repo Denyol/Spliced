@@ -1,0 +1,44 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "spliced:blocks/splicer"
+    },
+    "model": "spliced:splicer"
+  },
+  "variants":
+  {
+    "active=false,facing=north":
+    {
+      "model": "spliced:splicer"
+    },
+    "active=true,facing=north":
+    {
+      "model": "spliced:splicer_active"
+    },
+    "active=false,facing=east":
+    {
+      "model": "spliced:splicer", "y": 90
+    },
+    "active=true,facing=east":
+    {
+      "model": "spliced:splicer_active", "y": 90
+    },
+    "active=false,facing=south":
+    {
+      "model": "spliced:splicer", "y": 180
+    },
+    "active=true,facing=south":
+    {
+      "model": "spliced:splicer_active", "y": 180
+    },
+    "active=false,facing=west":
+    {
+      "model": "spliced:splicer", "y": 270
+    },
+    "active=true,facing=west":
+    {
+      "model": "spliced:splicer_active", "y": 270
+    }
+  }
+}
