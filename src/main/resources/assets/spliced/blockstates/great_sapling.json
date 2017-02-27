@@ -1,0 +1,58 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+  	"model": "builtin/generated",
+  	"transform": "forge:default-item"
+  },
+  "variants":
+  {
+  	"inventory,type=oak":
+    [{
+      "textures": {"layer0": "spliced:blocks/great_sapling_oak"}
+    }],
+    "inventory,type=spruce":
+    [{
+      "textures": {"layer0": "spliced:blocks/great_sapling_spruce"}
+    }],
+    "inventory,type=birch":
+    [{
+      "textures": {"layer0": "spliced:blocks/great_sapling_birch"}
+    }],
+    "inventory,type=jungle":
+    [{
+      "textures": {"layer0": "spliced:blocks/great_sapling_jungle"}
+    }],
+    "stage=0,type=oak":
+    {
+      "model": "spliced:great_oak_sapling"
+    },
+    "stage=0,type=spruce":
+    {
+      "model": "spliced:great_spruce_sapling"
+    },
+    "stage=0,type=birch":
+    {
+      "model": "spliced:great_birch_sapling"
+    },
+    "stage=0,type=jungle":
+    {
+      "model": "spliced:great_jungle_sapling"
+    },
+    "stage=1,type=oak":
+    {
+      "model": "spliced:great_oak_sapling"
+    },
+    "stage=1,type=spruce":
+    {
+      "model": "spliced:great_spruce_sapling"
+    },
+    "stage=1,type=birch":
+    {
+      "model": "spliced:great_birch_sapling"
+    },
+    "stage=1,type=jungle":
+    {
+      "model": "spliced:great_jungle_sapling"
+    }
+  }
+}

@@ -1,3 +1,9 @@
 tile.splicer.name=Splicer
+tile.great_sapling.oak.name=Great Oak Sapling
+tile.great_sapling.spruce.name=Great Spruce Sapling
+tile.great_sapling.birch.name=Great Birch Sapling
+tile.great_sapling.jungle.name=Great Jungle Sapling
+tile.great_sapling.acacia.name=Great Acacia Sapling
+tile.great_sapling.dark_oak.name=Great Dark Oak Sapling
 
 itemGroup.spliced=Spliced

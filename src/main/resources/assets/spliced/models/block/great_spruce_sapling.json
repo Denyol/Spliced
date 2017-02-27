@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures": {
+		"particle": "spliced:blocks/great_sapling_spruce",
+        "cross": "spliced:blocks/great_sapling_spruce"
+    }
+}

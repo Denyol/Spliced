@@ -23,6 +23,7 @@ import me.denyol.spliced.block.BlockGreatSapling;
 import me.denyol.spliced.block.BlockSplicer;
 import me.denyol.spliced.common.SplicedGuiHandler;
 import me.denyol.spliced.common.SplicedRecipes;
+import me.denyol.spliced.item.ItemBlockGreatSapling;
 import me.denyol.spliced.proxy.ISplicedProxy;
 import me.denyol.spliced.tileentity.SplicedTileEntities;
 import net.minecraft.block.Block;
@@ -51,9 +52,6 @@ public class Spliced
     public static final String NAME = "Spliced";
 	public static final String VERSION = "@VERSION@";
 
-	public static final BlockSplicer splicer = new BlockSplicer("splicer", Material.IRON);
-	public static final BlockGreatSapling greatSapling = new BlockGreatSapling("great_sapling");
-
 	public static CreativeTabs creativeTab = new CreativeTabs(SplicedRef.MODID)
 	{
 		@Override
@@ -62,6 +60,11 @@ public class Spliced
 			return Item.getItemFromBlock(splicer);
 		}
 	};
+
+	public static final BlockSplicer splicer = new BlockSplicer("splicer", Material.IRON);
+	public static final BlockGreatSapling greatSapling = new BlockGreatSapling("great_sapling");
+
+	public static final ItemBlockGreatSapling itemBlockGreatSapling = new ItemBlockGreatSapling(greatSapling);
 
     @Mod.Instance(SplicedRef.MODID)
     public static Spliced instance;
@@ -75,15 +78,15 @@ public class Spliced
 	public static void registerBlocks(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().register(splicer);
-		//event.getRegistry().register(greatSapling);
+		event.getRegistry().register(greatSapling);
 	}
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
 		event.getRegistry().registerAll(
-				splicer.createItemBlock()//,
-				//greatSapling.createItemBlock()
+				splicer.createItemBlock(),
+				itemBlockGreatSapling.setRegistryName("great_sapling")
 		);
 	}
 

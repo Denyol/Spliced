@@ -18,7 +18,9 @@
 
 package me.denyol.spliced.common;
 
+import me.denyol.spliced.Spliced;
 import me.denyol.spliced.api.SplicedRecipeManager;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -77,5 +79,16 @@ public final class SplicedRecipes
 				new ItemStack(Items.COAL, 4),
 				new ItemStack(Blocks.COAL_ORE),
 				null);
+
+		for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
+		{
+			if(type == BlockPlanks.EnumType.ACACIA || type == BlockPlanks.EnumType.DARK_OAK)
+				continue;
+			SplicedRecipeManager.addSplicedRecipe("SplicedSaplingBone"+type.toString(), 60, 15,
+					new ItemStack(Items.BONE, 3),
+					new ItemStack(Blocks.SAPLING, 1, type.getMetadata()),
+					new ItemStack(Spliced.greatSapling, 1,type.getMetadata()),
+					null);
+		}
 	}
 }

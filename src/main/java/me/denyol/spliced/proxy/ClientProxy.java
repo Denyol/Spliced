@@ -20,6 +20,7 @@ package me.denyol.spliced.proxy;
 
 import me.denyol.spliced.Spliced;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -33,6 +34,14 @@ public class ClientProxy implements ISplicedProxy
 	public void registerBlockInventoryRender()
 	{
 		registerForInventoryRendering(Spliced.splicer, "active=false,facing=north", 0);
+
+		for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
+		{
+			if(type.getMetadata() > 3)
+				break;
+			ModelResourceLocation model = new ModelResourceLocation(Spliced.itemBlockGreatSapling.getRegistryName(), "inventory,type=" + type.toString());
+			ModelLoader.setCustomModelResourceLocation(Spliced.itemBlockGreatSapling, type.getMetadata(), model);
+		}
 	}
 
 	public void registerForInventoryRendering(Block block, String variant, int meta)
