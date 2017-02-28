@@ -80,6 +80,12 @@ public final class SplicedRecipes
 				new ItemStack(Blocks.COAL_ORE),
 				null);
 
+		SplicedRecipeManager.addSplicedRecipe("SplicedObsidianPickaxe", 70, 30,
+				new ItemStack(Blocks.OBSIDIAN, 2),
+				new ItemStack(Items.DIAMOND_PICKAXE, 1),
+				new ItemStack(Spliced.itemDarkSteelPickaxe),
+				null);
+
 		for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
 		{
 			if(type == BlockPlanks.EnumType.ACACIA || type == BlockPlanks.EnumType.DARK_OAK)

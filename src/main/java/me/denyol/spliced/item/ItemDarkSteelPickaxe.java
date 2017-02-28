@@ -18,23 +18,19 @@
 
 package me.denyol.spliced.item;
 
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import me.denyol.spliced.Spliced;
+import net.minecraft.item.ItemPickaxe;
 
 /**
- * Created by Daniel on 14/2/17.
+ * Created by Daniel on 28/2/17.
  */
-public class ItemBase extends Item
+public class ItemDarkSteelPickaxe extends ItemPickaxe
 {
-	/**
-	 * Sets the unlocalized name, registry name, creative tab, the max damage to 0 and registers the item
-	 */
-	public ItemBase(SplicedItems.ItemTypes item)
+	public ItemDarkSteelPickaxe(String registryName, ToolMaterial material)
 	{
-		setCreativeTab(item.getCreativeTab());
-		setUnlocalizedName(item.getUnlocalizedName());
-		setRegistryName(item.getRegistryName());
-		setMaxDamage(0);
-		GameRegistry.register(this);
+		super(material);
+		this.setRegistryName(registryName);
+		this.setUnlocalizedName(registryName);
+		this.setCreativeTab(Spliced.creativeTab);
 	}
 }

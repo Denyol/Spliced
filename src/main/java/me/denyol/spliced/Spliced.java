@@ -24,6 +24,7 @@ import me.denyol.spliced.block.BlockSplicer;
 import me.denyol.spliced.common.SplicedGuiHandler;
 import me.denyol.spliced.common.SplicedRecipes;
 import me.denyol.spliced.item.ItemBlockGreatSapling;
+import me.denyol.spliced.item.ItemDarkSteelPickaxe;
 import me.denyol.spliced.proxy.ISplicedProxy;
 import me.denyol.spliced.tileentity.SplicedTileEntities;
 import net.minecraft.block.Block;
@@ -33,6 +34,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -61,10 +63,13 @@ public class Spliced
 		}
 	};
 
+	public static Item.ToolMaterial darkSteel = EnumHelper.addToolMaterial("darkSteel", 3, 1820, 8.5f, 3.0F, 12);
+
 	public static final BlockSplicer splicer = new BlockSplicer("splicer", Material.IRON);
 	public static final BlockGreatSapling greatSapling = new BlockGreatSapling("great_sapling");
 
 	public static final ItemBlockGreatSapling itemBlockGreatSapling = new ItemBlockGreatSapling(greatSapling);
+	public static final ItemDarkSteelPickaxe itemDarkSteelPickaxe = new ItemDarkSteelPickaxe("dark_steel_pickaxe", darkSteel);
 
     @Mod.Instance(SplicedRef.MODID)
     public static Spliced instance;
@@ -86,7 +91,8 @@ public class Spliced
 	{
 		event.getRegistry().registerAll(
 				splicer.createItemBlock(),
-				itemBlockGreatSapling.setRegistryName("great_sapling")
+				itemBlockGreatSapling.setRegistryName("great_sapling"),
+				itemDarkSteelPickaxe
 		);
 	}
 
