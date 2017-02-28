@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
-ext.versionType = "alpha"
+ext.versionType = "beta"
 
 version = mcversion + '-' + version_major + '.' + version_minor + '.' + version_patch
 if(project.hasProperty("versionType"))

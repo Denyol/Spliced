@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "spliced:items/dark_steel_pickaxe"
+    }
+}

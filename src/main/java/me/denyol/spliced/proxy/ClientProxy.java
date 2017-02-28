@@ -34,6 +34,7 @@ public class ClientProxy implements ISplicedProxy
 	public void registerBlockInventoryRender()
 	{
 		registerForInventoryRendering(Spliced.splicer, "active=false,facing=north", 0);
+		registerForInventoryRendering(Spliced.itemDarkSteelPickaxe, "layer0", 0);
 
 		for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
 		{
@@ -49,5 +50,10 @@ public class ClientProxy implements ISplicedProxy
 		Item item = Item.getItemFromBlock(block);
 		if(item != null)
 			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(block.getRegistryName(), variant));
+	}
+
+	public void registerForInventoryRendering(Item item, String variant, int meta)
+	{
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));
 	}
 }
