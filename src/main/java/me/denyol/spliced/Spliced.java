@@ -23,8 +23,7 @@ import me.denyol.spliced.block.BlockGreatSapling;
 import me.denyol.spliced.block.BlockSplicer;
 import me.denyol.spliced.common.SplicedGuiHandler;
 import me.denyol.spliced.common.SplicedRecipes;
-import me.denyol.spliced.item.ItemBlockGreatSapling;
-import me.denyol.spliced.item.ItemDarkSteelPickaxe;
+import me.denyol.spliced.item.*;
 import me.denyol.spliced.proxy.ISplicedProxy;
 import me.denyol.spliced.tileentity.SplicedTileEntities;
 import net.minecraft.block.Block;
@@ -70,8 +69,12 @@ public class Spliced
 
 	public static final ItemBlockGreatSapling itemBlockGreatSapling = new ItemBlockGreatSapling(greatSapling);
 	public static final ItemDarkSteelPickaxe itemDarkSteelPickaxe = new ItemDarkSteelPickaxe("dark_steel_pickaxe", darkSteel);
+	public static final ItemDarkSteelSword itemDarkSteelSword = new ItemDarkSteelSword("dark_steel_sword", darkSteel);
+	public static final ItemDarkSteelAxe itemDarkSteelAxe = new ItemDarkSteelAxe("dark_steel_axe", darkSteel);
+	public static final ItemDarkSteelShovel itemDarkSteelShovel = new ItemDarkSteelShovel("dark_steel_shovel", darkSteel);
+	public static final ItemDarkSteelHoe itemDarkSteelHoe = new ItemDarkSteelHoe("dark_steel_hoe", darkSteel);
 
-    @Mod.Instance(SplicedRef.MODID)
+	@Mod.Instance(SplicedRef.MODID)
     public static Spliced instance;
 
 	@SidedProxy(clientSide = "me.denyol.spliced.proxy.ClientProxy", serverSide = "me.denyol.spliced.proxy.ServerProxy")
@@ -92,7 +95,7 @@ public class Spliced
 		event.getRegistry().registerAll(
 				splicer.createItemBlock(),
 				itemBlockGreatSapling.setRegistryName("great_sapling"),
-				itemDarkSteelPickaxe
+				itemDarkSteelPickaxe, itemDarkSteelSword, itemDarkSteelAxe, itemDarkSteelShovel, itemDarkSteelHoe
 		);
 	}
 

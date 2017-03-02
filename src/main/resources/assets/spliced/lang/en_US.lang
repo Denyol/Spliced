@@ -9,3 +9,7 @@ tile.great_sapling.dark_oak.name=Great Dark Oak Sapling
 itemGroup.spliced=Spliced
 
 item.dark_steel_pickaxe.name=Dark Steel Pickaxe
+item.dark_steel_axe.name=Dark Steel Axe
+item.dark_steel_shovel.name=Dark Steel Shovel
+item.dark_steel_hoe.name=Dark Steel Hoe
+item.dark_steel_sword.name=Dark Steel Sword

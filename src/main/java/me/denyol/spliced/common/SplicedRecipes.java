@@ -86,6 +86,30 @@ public final class SplicedRecipes
 				new ItemStack(Spliced.itemDarkSteelPickaxe),
 				null);
 
+		SplicedRecipeManager.addSplicedRecipe("SplicedObsidianSword", 70, 30,
+				new ItemStack(Blocks.OBSIDIAN, 2),
+				new ItemStack(Items.DIAMOND_SWORD, 1),
+				new ItemStack(Spliced.itemDarkSteelSword),
+				null);
+
+		SplicedRecipeManager.addSplicedRecipe("SplicedObsidianShovel", 70, 30,
+				new ItemStack(Blocks.OBSIDIAN, 2),
+				new ItemStack(Items.DIAMOND_SHOVEL, 1),
+				new ItemStack(Spliced.itemDarkSteelShovel),
+				null);
+
+		SplicedRecipeManager.addSplicedRecipe("SplicedObsidianAxe", 70, 30,
+				new ItemStack(Blocks.OBSIDIAN, 2),
+				new ItemStack(Items.DIAMOND_AXE, 1),
+				new ItemStack(Spliced.itemDarkSteelAxe),
+				null);
+
+		SplicedRecipeManager.addSplicedRecipe("SplicedObsidianHoe", 70, 30,
+				new ItemStack(Blocks.OBSIDIAN, 2),
+				new ItemStack(Items.DIAMOND_HOE, 1),
+				new ItemStack(Spliced.itemDarkSteelHoe),
+				null);
+
 		for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
 		{
 			if(type == BlockPlanks.EnumType.ACACIA || type == BlockPlanks.EnumType.DARK_OAK)

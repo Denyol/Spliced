@@ -35,6 +35,10 @@ public class ClientProxy implements ISplicedProxy
 	{
 		registerForInventoryRendering(Spliced.splicer, "active=false,facing=north", 0);
 		registerForInventoryRendering(Spliced.itemDarkSteelPickaxe, "layer0", 0);
+		registerForInventoryRendering(Spliced.itemDarkSteelAxe, "layer0", 0);
+		registerForInventoryRendering(Spliced.itemDarkSteelShovel, "layer0", 0);
+		registerForInventoryRendering(Spliced.itemDarkSteelSword, "layer0", 0);
+		registerForInventoryRendering(Spliced.itemDarkSteelHoe, "layer0", 0);
 
 		for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values())
 		{
